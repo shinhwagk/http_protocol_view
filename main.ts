@@ -1,10 +1,9 @@
 import * as http from 'http';
 
 const server = http.createServer((req, res) => {
-  console.info(req.headers)
   let rawData = '';
   req.on("data", (c) => { rawData += c })
-  req.on("end", () => { console.info("headers", req.headers); console.info("body", rawData) })
+  req.on("end", () => { console.info("url", req.url); console.info("method", req.method); console.info("headers", req.headers); console.info("body", rawData) })
 });
 
 server.on('clientError', (err, socket) => {
