@@ -8,12 +8,12 @@ class HttpProtocolView(BaseHTTPRequestHandler):
         print(self.headers)
 
     def do_POST(self):
-        print(self.headers)
         data = self.rfile.read(
             int(self.headers['content-length'])).decode('utf-8')
+        print(self.headers)
         print(data)
 
 
 server = HTTPServer(host, HttpProtocolView)
-print('http server start, listen %s' % 8000)
+print('http server start, listen %s' % host[1])
 server.serve_forever()
