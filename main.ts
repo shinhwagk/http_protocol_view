@@ -1,4 +1,4 @@
-import * as http from 'http';
+const http = require("http")
 
 const server = http.createServer((req, res) => {
   let rawData = '';
@@ -11,3 +11,4 @@ server.on('clientError', (err, socket) => {
 });
 
 server.listen(8000);
+console.info("http server start, listen: 8000")
